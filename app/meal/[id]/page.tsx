@@ -1,9 +1,4 @@
-// 
-
-
-
-
-
+//
 import React from "react";
 
 type Meal = {
@@ -15,7 +10,7 @@ type Meal = {
     strInstructions: string,
     strTags: string,
     strYoutube: string,
-    [key: string]: any;
+    [key: string]: string;
 };
 
 type Params = {
@@ -56,7 +51,6 @@ export default async function MealPage({ params }: Params) {
             <div className="flex flex-col lg:flex-row gap-12">
                 <div className="lg:w-1/2">
                     <img className="w-full rounded shadow-md" src={meal.strMealThumb} alt={meal.strMeal} />
-                    
                     <iframe
                         className="w-full aspect-video mt-6 rounded"
                         src={`https://www.youtube.com/embed/${meal.strYoutube.split("v=")[1]}`}
