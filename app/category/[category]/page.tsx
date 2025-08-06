@@ -1,5 +1,5 @@
 import React from "react";
-import PaginatedMeals from "../../../components/PaginatedMeals";
+import { MealList} from "../../../components/MealList";
 
 type Meal = {
     strMeal:string;
@@ -29,7 +29,7 @@ export default async function CategoryPage({params}:Params){
         <div className="CategoryPage container mx-auto p-3">
             <h1 className="text-center text-4xl text-green-900 mt-8" >Meals in {category}</h1>
             {
-                data.meals ? <PaginatedMeals meals={data.meals} /> :
+                data.meals ? <MealList meals={data.meals} /> :
                 <p className="text-center text-2xl text-gray-500">No meals found in {category}</p>
             }
         </div>

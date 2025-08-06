@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 
 type Meal = {
@@ -15,7 +16,7 @@ type Props = {
   meals: Meal[];
 };
 
-export default function PaginatedMeals({ meals }: Props) {
+export  function MealList({ meals }: Props) {
   const [page, setPage] = useState(1);
   const itemsPerPage = 8;
   const [query, setQuery] = useState("");
@@ -24,7 +25,7 @@ export default function PaginatedMeals({ meals }: Props) {
 
   const filtered =useMemo(()=>meals.filter(m=>{
     return m.strMeal.toLowerCase().includes(query.toLowerCase())
-  }), [query]);
+  }), [query,meals]);
   
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
 
@@ -55,8 +56,15 @@ export default function PaginatedMeals({ meals }: Props) {
 
       <ul className='grid md: grid-cols-2 lg:grid-cols-4 gap-4 mt-10'>
         {current.map(meal => <li key={meal.idMeal} className='shadow-md p-3 bg-green-100'>
-          <img className='w-full' src={meal.strMealThumb} alt={meal.strMeal} />
-          <Link className='text-green-800' href={`/meal/${meal.idMeal}`}>{meal.strMeal}</Link>
+          {/* <img className='w-full' src={meal.strMealThumb} alt={meal.strMeal} /> */}
+          <Image
+            className="w-full mb-3"
+            src={meal.strMealThumb}
+            alt={meal.strMeal}
+            width={600}       
+            height={350}
+          />
+          <Link className='text-green-800 ' href={`/meal/${meal.idMeal}`}>{meal.strMeal}</Link>
         </li>)}
       </ul>
 

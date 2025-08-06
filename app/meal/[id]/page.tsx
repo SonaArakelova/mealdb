@@ -1,5 +1,6 @@
 //
 import React from "react";
+import Image from "next/image";
 
 type Meal = {
     idMeal: string,
@@ -50,7 +51,14 @@ export default async function MealPage({ params }: Params) {
             <h1 className="text-center text-4xl text-green-950 font-bold mb-10">{meal.strMeal}</h1>
             <div className="flex flex-col lg:flex-row gap-12">
                 <div className="lg:w-1/2">
-                    <img className="w-full rounded shadow-md" src={meal.strMealThumb} alt={meal.strMeal} />
+                    {/* <img className="w-full rounded shadow-md" src={meal.strMealThumb} alt={meal.strMeal} /> */}
+                     <Image
+                        className="w-full rounded shadow-md"
+                        src={meal.strMealThumb}
+                        alt={meal.strMeal}
+                        width={450}
+                        height={150}
+                        />
                     <iframe
                         className="w-full aspect-video mt-6 rounded"
                         src={`https://www.youtube.com/embed/${meal.strYoutube.split("v=")[1]}`}

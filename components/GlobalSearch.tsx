@@ -2,6 +2,7 @@
 'use client'
 
 import Link from "next/link";
+import Image from "next/image";
 import { useSearch } from "@/context/SearchContext";
 import { useState, useRef, useEffect } from "react";
 
@@ -30,7 +31,6 @@ export function GlobalSearch() {
 
 
 
-
   return (
     <div className="relative w-full" ref={ref}>
       <input            
@@ -56,7 +56,15 @@ export function GlobalSearch() {
             meals.slice(0, 10).map((item) => (
               <li key={item.idMeal} className="p-2 hover:bg-gray-100">
                 <Link href={`/meal/${item.idMeal}`} onClick={() => setOpen(false)} className="flex gap-4 shadow p-2">
-                <img src = {item.strMealThumb} alt ={item.strMeal} className="w-20 h-20 rounded"/>
+                {/* <img src = {item.strMealThumb} alt ={item.strMeal} className="w-20 h-20 rounded"/> */}
+                <Image
+                    src={item.strMealThumb}
+                    alt={item.strMeal}
+                    width={80}
+                    height={80}
+                    className="rounded"
+                  />
+                                
                 <span className="ml-2">{item.strMeal}</span>
                 
                 </Link>
