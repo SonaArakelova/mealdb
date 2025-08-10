@@ -3,7 +3,8 @@
 import React from "react";
 import { usePathname, useRouter } from 'next/navigation';
 
-import { GlobalSearch } from "./GlobalSearch";
+// import { GlobalSearch } from "./GlobalSearch";
+import {GlobalSearch2} from "./GlobalSearch2";
 
 
 export function Header() {
@@ -20,7 +21,9 @@ export function Header() {
       <div className="flex flex-col sm:flex-row items-center justify-between pl-10 pr-10">
         <h1 className="text-4xl font-bold"> Welcome to MealDb </h1>
          <div className="w-full sm:w-72 ">
-          <GlobalSearch /> 
+          {/* <GlobalSearch />  */}
+          <GlobalSearch2 />
+
         </div>
 
          {pathname !== '/' && (

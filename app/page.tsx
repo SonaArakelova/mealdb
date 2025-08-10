@@ -1,5 +1,5 @@
 
-import { CategoryList } from '@/components/CategoryList';
+import { CategoryList } from '@/components/Content/CategoryList';
 
 type Category = {
   idCategory :string;

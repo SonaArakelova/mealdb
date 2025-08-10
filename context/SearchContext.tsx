@@ -29,11 +29,11 @@ const SearchContext = createContext<SearchContextType>({
     isLoading: false,
 });
 
+
 export function SearchProvider({ children }: { children: React.ReactNode }) {
     const [query, setQuery] = useState('');
     const [meals, setMeals] = useState<Meal[]>([]);
     const [isLoading, setIsLoading] = useState(false);
-
 
 
     useEffect(() => {
@@ -87,6 +87,7 @@ export function SearchProvider({ children }: { children: React.ReactNode }) {
     )
 
 }
+
 
 
 export const useSearch = () => useContext(SearchContext)
