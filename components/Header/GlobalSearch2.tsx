@@ -90,7 +90,7 @@ export  function GlobalSearch2() {
     <div className="relative w-full" ref={ref}>
       <input
         id="Searchinput"
-        className="w-full p-2 rounded-md border border-green-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+        className="w-full p-2 rounded-md border border-green-500 focus:outline-none focus:ring-1 focus:ring-green-600 bg-white"
         type="text"
         placeholder="Search Meals..."
         value={query}
@@ -101,7 +101,7 @@ export  function GlobalSearch2() {
       />
 
       {open && (
-        <ul className="absolute bg-white border border-gray-300 w-full mt-1 z-50 max-h-64 overflow-y-auto">
+        <ul className="absolute bg-green-100 border border-gray-300 w-full mt-1 z-50 max-h-64 overflow-y-auto">
           {isLoading && <li className="p-2 text-gray-500">Loading...</li>}
 
           {!isLoading && meals.length === 0 && query.trim().length > 0 && (
@@ -110,19 +110,19 @@ export  function GlobalSearch2() {
 
           {!isLoading &&
             meals.slice(0, 10).map((item) => (
-              <li key={item.idMeal} className="p-2 hover:bg-gray-100">
+              <li key={item.idMeal} className="p-2 hover:bg-white">
                 <Link
                   href={`/meal/${item.idMeal}`}
                   onClick={() => setOpen(false)}
-                  className="flex gap-4 shadow p-2"
+                  className="flex gap-4 shadow p-2 text-2xl"
                 >
 
                   {item.strMealThumb  &&(
                   <Image
                     src={item.strMealThumb}
                     alt={item.strMeal}
-                    width={80}
-                    height={80}
+                    width={110}
+                    height={110}
                     className="rounded"
                   />
                   )}
